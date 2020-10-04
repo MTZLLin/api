@@ -14,16 +14,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var apiClient = ApiClient()
-        var apiCall = apiClient.getEverything()
-        apiCall.enqueue(object : Callback<News>{
-            override fun onFailure(call: Call<News>, t: Throwable) {
-                txtResult.text = t.toString()
-            }
-
-            override fun onResponse(call: Call<News>, response: Response<News>) {
-                txtResult.text = response.body().toString()
-            }
-        })
     }
 }
